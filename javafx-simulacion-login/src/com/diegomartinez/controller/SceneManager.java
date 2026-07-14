@@ -16,7 +16,7 @@ public class SceneManager {
 
     private SceneManager() {
         try {
-
+            
         } catch (NullPointerException objetoNulo) {
             JOptionPane.showMessageDialog(null, "Error de objeto nulo: Ventana Login");
             objetoNulo.printStackTrace(); //muestra todo el camino del error
