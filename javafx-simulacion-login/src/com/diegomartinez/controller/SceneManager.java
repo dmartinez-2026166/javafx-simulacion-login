@@ -4,6 +4,7 @@ import com.diegomartinez.view.LoginView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 
 public class SceneManager {
@@ -15,7 +16,7 @@ public class SceneManager {
 
     private SceneManager() {
         try {
-            
+
         } catch (NullPointerException objetoNulo) {
             JOptionPane.showMessageDialog(null, "Error de objeto nulo: Ventana Login");
             objetoNulo.printStackTrace(); //muestra todo el camino del error
@@ -26,8 +27,17 @@ public class SceneManager {
     }
 
     public void ventanaLogin() {
-        LoginView login = LoginView.getInstanciaLoginView();
-        cambiarEscena(login, 450, 500);
+        try {
+            this.escenarioPrincipal.initStyle(StageStyle.TRANSPARENT);
+            LoginView login = LoginView.getInstanciaLoginView();
+            cambiarEscena(login, 450, 500);
+        } catch (NullPointerException objetoNulo) {
+            JOptionPane.showMessageDialog(null, "Error de objeto nulo: Ventana Login");
+            objetoNulo.printStackTrace(); //muestra todo el camino del error
+        } catch (Exception errorPadre) {
+            JOptionPane.showMessageDialog(null, "Error padre: metodo Ventana Login");
+            errorPadre.printStackTrace();
+        }
     }
 
     public void cambiarEscena(Pane panel, int ancho, int alto) {
