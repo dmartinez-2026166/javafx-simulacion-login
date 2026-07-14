@@ -1,9 +1,24 @@
 package com.diegomartinez.view;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 public class LoginView extends BorderPane {
 
@@ -12,12 +27,36 @@ public class LoginView extends BorderPane {
     private Label lblTituloVentana;
     private HBox barraDeOpciones;
 
+    private VBox cajaVertical;
+    private Label lblNombreUsuario;
+    private TextField txtNombreUsuario;
+    private Label lblClave;
+    private PasswordField pwdClave;
+
+    private GridPane formulario;
+    private ImageView imgLogoLogin;
+    private Button btnIniciarSesion;
+
     private LoginView() {
+        this.setPadding(new Insets(15));
+        this.setBorder(new Border(
+                new BorderStroke(Paint.valueOf("#202087"), //Color del borde
+                        BorderStrokeStyle.SOLID, //Estilo del borde
+                        new CornerRadii(22), //pixeles del redondeado
+                        new BorderWidths(10)) //Grosor o ancho del borde
+        ));
+
+        this.setBackground(new Background(
+                new BackgroundFill(Paint.valueOf("#156913"), //Color del fondo 
+                        new CornerRadii(25), //Píxeles del redondeado
+                        Insets.EMPTY) //Espaciado del fondo
+        ));
+
         barraDeOpciones = new HBox(25);
-        
+
         btnCerrarVentana = new Button("X");
         lblTituloVentana = new Label("JAVAFX - SIMULACION LOGIN");
-        
+
         barraDeOpciones.getChildren().addAll(btnCerrarVentana, lblTituloVentana);
         this.setTop(barraDeOpciones);
     }
@@ -46,7 +85,6 @@ public class LoginView extends BorderPane {
         this.barraDeOpciones = barraDeOpciones;
     }
 
-    
     public static LoginView getInstanciaLoginView() {
         if (instanciaLoginView == null) {
             instanciaLoginView = new LoginView();
