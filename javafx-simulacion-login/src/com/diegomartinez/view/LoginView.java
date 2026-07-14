@@ -1,10 +1,12 @@
 package com.diegomartinez.view;
 
+import com.diegomartinez.controller.ImageController;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -74,10 +76,10 @@ public class LoginView extends BorderPane {
         formulario.add(lblClave,0 , 1);
         formulario.add(pwdClave, 1, 1);
         
-        imgLogoLogin = new ImageView();
+        imgLogoLogin = new ImageView(new ImageController().getImageLogin("logo"));
         btnIniciarSesion = new Button("Iniciar Sesion");
         
-        cajaVertical.getChildren().addAll(formulario, btnIniciarSesion);
+        cajaVertical.getChildren().addAll(imgLogoLogin, formulario, btnIniciarSesion);
         this.setCenter(cajaVertical);
     }
 
