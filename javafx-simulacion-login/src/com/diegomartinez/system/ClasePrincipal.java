@@ -13,7 +13,7 @@ public class ClasePrincipal extends Application{
     
     @Override
     public void start(Stage escenarioRaiz) {
-        
+        SceneManager.getInstanciaSceneManager().setEscenarioPrincipal(escenarioRaiz);
     }
     
 }

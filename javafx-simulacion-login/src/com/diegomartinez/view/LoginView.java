@@ -19,6 +19,7 @@ public class LoginView extends BorderPane {
         lblTituloVentana = new Label("JAVAFX - SIMULACION LOGIN");
         
         barraDeOpciones.getChildren().addAll(btnCerrarVentana, lblTituloVentana);
+        this.setTop(barraDeOpciones);
     }
 
     public Button getBtnCerrarVentana() {

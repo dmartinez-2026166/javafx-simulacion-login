@@ -1,5 +1,6 @@
 package com.diegomartinez.controller;
 
+import com.diegomartinez.view.LoginView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -25,7 +26,8 @@ public class SceneManager {
     }
 
     public void ventanaLogin() {
-
+        LoginView login = LoginView.getInstanciaLoginView();
+        cambiarEscena(login, 450, 500);
     }
 
     public void cambiarEscena(Pane panel, int ancho, int alto) {
