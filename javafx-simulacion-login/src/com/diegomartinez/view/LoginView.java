@@ -2,6 +2,7 @@ package com.diegomartinez.view;
 
 import com.diegomartinez.controller.ImageController;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -49,7 +50,7 @@ public class LoginView extends BorderPane {
         ));
 
         this.setBackground(new Background(
-                new BackgroundFill(Paint.valueOf("#156913"), //Color del fondo 
+                new BackgroundFill(Color.WHITE, //Color del fondo 
                         new CornerRadii(25), //Píxeles del redondeado
                         Insets.EMPTY) //Espaciado del fondo
         ));
@@ -76,8 +77,14 @@ public class LoginView extends BorderPane {
         formulario.add(lblClave,0 , 1);
         formulario.add(pwdClave, 1, 1);
         
-        imgLogoLogin = new ImageView(new ImageController().getImageLogin("logo"));
         btnIniciarSesion = new Button("Iniciar Sesion");
+        
+        imgLogoLogin = new ImageView(new ImageController().getImageLogin("logo"));
+        imgLogoLogin.setFitWidth(100);
+        imgLogoLogin.setFitHeight(100);
+        imgLogoLogin.setCache(true);
+        
+        cajaVertical.setAlignment(Pos.CENTER);
         
         cajaVertical.getChildren().addAll(imgLogoLogin, formulario, btnIniciarSesion);
         this.setCenter(cajaVertical);
