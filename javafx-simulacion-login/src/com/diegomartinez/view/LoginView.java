@@ -56,9 +56,29 @@ public class LoginView extends BorderPane {
 
         btnCerrarVentana = new Button("X");
         lblTituloVentana = new Label("JAVAFX - SIMULACION LOGIN");
-
+        
         barraDeOpciones.getChildren().addAll(btnCerrarVentana, lblTituloVentana);
         this.setTop(barraDeOpciones);
+        
+        cajaVertical = new VBox();
+        formulario = new GridPane();
+        
+        lblNombreUsuario = new Label("ingrese su nombre usuario");
+        txtNombreUsuario = new TextField();
+        lblClave = new Label("Ingrese su contraseña");
+        pwdClave = new PasswordField();
+        
+        formulario.add(lblNombreUsuario,0 ,0);
+        formulario.add(txtNombreUsuario,1, 0);
+        
+        formulario.add(lblClave,0 , 1);
+        formulario.add(pwdClave, 1, 1);
+        
+        imgLogoLogin = new ImageView();
+        btnIniciarSesion = new Button("Iniciar Sesion");
+        
+        cajaVertical.getChildren().addAll(formulario, btnIniciarSesion);
+        this.setCenter(cajaVertical);
     }
 
     public Button getBtnCerrarVentana() {
