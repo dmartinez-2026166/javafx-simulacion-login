@@ -1,6 +1,6 @@
 package com.diegomartinez.system;
 
-//import com.diegomartinez.controller.SceneManagerController;
+import com.diegomartinez.controller.SceneManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -11,6 +11,7 @@ public class ClasePrincipal extends Application{
         launch(args);
     }
     
+    @Override
     public void start(Stage escenarioRaiz) {
         
     }
