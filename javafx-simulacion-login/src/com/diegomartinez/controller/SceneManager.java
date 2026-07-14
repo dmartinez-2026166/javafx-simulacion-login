@@ -2,17 +2,47 @@ package com.diegomartinez.controller;
 
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javax.swing.JOptionPane;
 
 public class SceneManager {
+
     private Stage escenarioPrincipal;
     private Stage escenarioSecundario;
     private Scene escenaPrincipal;
     private static SceneManager instanciaSceneManager;
 
     private SceneManager() {
-    
+        try {
+            
+        } catch (NullPointerException objetoNulo) {
+            JOptionPane.showMessageDialog(null, "Error de objeto nulo: Ventana Login");
+            objetoNulo.printStackTrace(); //muestra todo el camino del error
+        } catch (Exception errorPadre) {
+            JOptionPane.showMessageDialog(null, "Error padre: metodo Ventana Login");
+            errorPadre.printStackTrace();
+        }
     }
-    
+
+    public void ventanaLogin() {
+
+    }
+
+    public void cambiarEscena(Pane panel, int ancho, int alto) {
+        try {
+            escenaPrincipal = new Scene(panel, ancho, alto);
+            this.escenarioPrincipal.setScene(escenaPrincipal);
+            this.escenarioPrincipal.sizeToScene();
+            this.escenarioPrincipal.show();
+        } catch (NullPointerException objetoNulo) {
+            JOptionPane.showMessageDialog(null, "Error de objeto nulo: cambiar escena");
+            objetoNulo.printStackTrace(); //muestra todo el camino del error
+        } catch (Exception errorPadre) {
+            JOptionPane.showMessageDialog(null, "Error padre: metodo cambiar escena");
+            errorPadre.printStackTrace();
+        }
+    }
+
     public static SceneManager getInstanciaSceneManager() {
         if (instanciaSceneManager == null) {
             instanciaSceneManager = new SceneManager();
@@ -47,6 +77,5 @@ public class SceneManager {
     public void setEscenaPrincipal(Scene escenaPrincipal) {
         this.escenaPrincipal = escenaPrincipal;
     }
-    
-    
+
 }
