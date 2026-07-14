@@ -81,6 +81,7 @@ public class LoginView extends BorderPane {
         
         imgLogoLogin = new ImageView(new ImageController().getImageLogin("logo"));
         imgLogoLogin.setFitWidth(100);
+        
         imgLogoLogin.setFitHeight(100);
         imgLogoLogin.setCache(true);
         
