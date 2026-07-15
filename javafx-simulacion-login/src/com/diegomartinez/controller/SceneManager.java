@@ -1,10 +1,12 @@
 package com.diegomartinez.controller;
 
+import com.diegomartinez.view.BienvenidaView;
 import com.diegomartinez.view.LoginView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 
@@ -19,14 +21,34 @@ public class SceneManager {
         try {
             
         } catch (NullPointerException objetoNulo) {
-            JOptionPane.showMessageDialog(null, "Error de objeto nulo: Ventana Login");
+            JOptionPane.showMessageDialog(null, "Error de objeto nulo: SceneManager");
             objetoNulo.printStackTrace(); //muestra todo el camino del error
         } catch (Exception errorPadre) {
-            JOptionPane.showMessageDialog(null, "Error padre: metodo Ventana Login");
+            JOptionPane.showMessageDialog(null, "Error padre: metodo SceneManager");
             errorPadre.printStackTrace();
         }
     }
 
+    public void ventanaBienvenida() {
+        try {
+            this.escenarioSecundario = new Stage();
+            this.escenarioSecundario.initStyle(StageStyle.TRANSPARENT);
+            this.escenarioSecundario.initModality(Modality.APPLICATION_MODAL);
+            BienvenidaView bienvenida = new BienvenidaView();
+            this.escenaPrincipal = new Scene(bienvenida, 15, 20);
+            this.escenarioSecundario.setScene(escenaPrincipal);
+            this.escenarioSecundario.sizeToScene();
+            this.escenarioSecundario.showAndWait();
+            
+        } catch (NullPointerException objetoNulo) {
+            JOptionPane.showMessageDialog(null, "Error de objeto nulo: Ventana Bienvenida");
+            objetoNulo.printStackTrace(); //muestra todo el camino del error
+        } catch (Exception errorPadre) {
+            JOptionPane.showMessageDialog(null, "Error padre: metodo Ventana Bienvenida");
+            errorPadre.printStackTrace();
+        }
+    }
+    
     public void ventanaLogin() {
         try {
             this.escenarioPrincipal.initStyle(StageStyle.TRANSPARENT);
