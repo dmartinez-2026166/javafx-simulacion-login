@@ -38,7 +38,12 @@ public class LoginController {
             if (usuario == null) {
                 JOptionPane.showMessageDialog(null, "VERIFICA TUS CREDENCIALES");
             } else {
-                SceneManager.getInstanciaSceneManager().ventanaBienvenida();
+                if (escenarioPrincipal != null) {
+                    escenarioPrincipal.close();
+                }
+                
+                String nombreAMostrar = usuario.getNombreUsuario();
+                SceneManager.getInstanciaSceneManager().ventanaBienvenida(nombreAMostrar);
             }
         }
     }

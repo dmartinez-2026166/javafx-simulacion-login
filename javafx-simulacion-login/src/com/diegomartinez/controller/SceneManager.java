@@ -19,7 +19,7 @@ public class SceneManager {
 
     private SceneManager() {
         try {
-            
+
         } catch (NullPointerException objetoNulo) {
             JOptionPane.showMessageDialog(null, "Error de objeto nulo: SceneManager");
             objetoNulo.printStackTrace(); //muestra todo el camino del error
@@ -29,17 +29,20 @@ public class SceneManager {
         }
     }
 
-    public void ventanaBienvenida() {
+    public void ventanaBienvenida(String nombreUsuario) {
         try {
             this.escenarioSecundario = new Stage();
             this.escenarioSecundario.initStyle(StageStyle.TRANSPARENT);
             this.escenarioSecundario.initModality(Modality.APPLICATION_MODAL);
-            BienvenidaView bienvenida = new BienvenidaView();
-            this.escenaPrincipal = new Scene(bienvenida, 15, 20);
+            BienvenidaView bienvenida = BienvenidaView.getInstancaBienvenidaView(nombreUsuario);
+
+            this.escenaPrincipal = new Scene(bienvenida, 300, 150);
+            this.escenaPrincipal.setFill(Color.TRANSPARENT);
+
             this.escenarioSecundario.setScene(escenaPrincipal);
             this.escenarioSecundario.sizeToScene();
             this.escenarioSecundario.showAndWait();
-            
+
         } catch (NullPointerException objetoNulo) {
             JOptionPane.showMessageDialog(null, "Error de objeto nulo: Ventana Bienvenida");
             objetoNulo.printStackTrace(); //muestra todo el camino del error
@@ -48,7 +51,7 @@ public class SceneManager {
             errorPadre.printStackTrace();
         }
     }
-    
+
     public void ventanaLogin() {
         try {
             this.escenarioPrincipal.initStyle(StageStyle.TRANSPARENT);
@@ -56,7 +59,7 @@ public class SceneManager {
             cambiarEscena(login, 450, 500);
             this.escenaPrincipal.setFill(Color.TRANSPARENT);
             new LoginController(login);
-            
+
         } catch (NullPointerException objetoNulo) {
             JOptionPane.showMessageDialog(null, "Error de objeto nulo: Ventana Login");
             objetoNulo.printStackTrace(); //muestra todo el camino del error
