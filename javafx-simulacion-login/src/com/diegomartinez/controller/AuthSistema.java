@@ -10,7 +10,7 @@ public class AuthSistema {
 
     public AuthSistema() {
         Usuario usuarioAdmin = new Usuario("admin", "1234", "ADMIN", Rol.ADMIN);
-        Usuario usuarioUser = new Usuario("user", "5678", "USER", Rol.USER);
+        Usuario usuarioUser = new Usuario("user", "5678", "JOSE FERNANDO", Rol.USER);
         Usuario usuarioYo = new Usuario("Diego", "166", "Diego Martinez", Rol.ADMIN);
 
         listaUsuarios.add(usuarioAdmin);
