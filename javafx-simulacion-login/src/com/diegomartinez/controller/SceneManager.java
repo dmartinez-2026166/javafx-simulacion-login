@@ -37,7 +37,9 @@ public class SceneManager {
             BienvenidaView bienvenida = BienvenidaView.getInstancaBienvenidaView(nombreUsuario);
 
             this.escenaPrincipal = new Scene(bienvenida, 300, 150);
-            this.escenaPrincipal.setFill(Color.TRANSPARENT);
+            this.escenaPrincipal.setFill(Color.TRANSPARENT); 
+            
+            this.escenaPrincipal.getStylesheets().add(getClass().getResource("/com/diegomartinez/styles/LoginStyles.css").toExternalForm());
 
             this.escenarioSecundario.setScene(escenaPrincipal);
             this.escenarioSecundario.sizeToScene();
@@ -45,7 +47,7 @@ public class SceneManager {
 
         } catch (NullPointerException objetoNulo) {
             JOptionPane.showMessageDialog(null, "Error de objeto nulo: Ventana Bienvenida");
-            objetoNulo.printStackTrace(); //muestra todo el camino del error
+            objetoNulo.printStackTrace();
         } catch (Exception errorPadre) {
             JOptionPane.showMessageDialog(null, "Error padre: metodo Ventana Bienvenida");
             errorPadre.printStackTrace();
