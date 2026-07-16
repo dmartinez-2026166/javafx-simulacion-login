@@ -32,7 +32,7 @@ public class LoginController {
             JOptionPane.showMessageDialog(null, "NO DEJES VACIA LA CONTRASEÑA");
         } else {
             this.LOGIN_VIEW.getPwdClave().getStyleClass().remove("empty");
-            //Método login
+            // Método login
             Usuario usuario = authSistema.login(nombreUsuario, clave);
             
             if (usuario == null) {
@@ -42,7 +42,7 @@ public class LoginController {
                     escenarioPrincipal.close();
                 }
                 
-                String nombreAMostrar = usuario.getNombreUsuario();
+                String nombreAMostrar = usuario.getNombreCompleto();
                 SceneManager.getInstanciaSceneManager().ventanaBienvenida(nombreAMostrar);
             }
         }
